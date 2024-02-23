@@ -26,7 +26,7 @@ class Cron {
           if(client){
             const id = client.contacts.telegram?.chatId
             if(id){
-              const msg = 'Напоминание о ресницах'
+              const msg = `Напоминание о ресницах ${day}.${month}.${year} ${time.from} - ${time.to}`
               await TgBot.sendMessage(id,msg)
             }
           }
