@@ -1,6 +1,6 @@
 import { CronJob } from 'cron';
 import type { Note } from '../models/note'
-import ClientModel, { type Client } from '../models/client';
+import ClientModel from '../models/client';
 import TgBot from '../bots/TelegramBot';
 
 type JobType = {
