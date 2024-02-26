@@ -4,7 +4,7 @@ import ClientController from '../controllers/ClientController'
 import NoteController from '../controllers/NoteController'
 import ClientModel from '../models/client'
 
-import { CronJob } from 'cron';
+import TgBot from '../bots/TelegramBot'
 
 import Cron from '../controllers/Cron';
 
@@ -23,10 +23,10 @@ router.post('/addClient', ClientController.addClient)
 router.put('/updateClient', ClientController.updateClient)
 router.delete('/deleteClient', ClientController.deleteClient)
 
-// router.get('/test1', async (req, res) =>{
-//   Cron.start('1')
-//   res.status(200).json('Run!')
-// })
+router.get('/test1', async (req, res) =>{
+  TgBot.sendMessage(465076362,'hello test')
+  res.status(200).json('Run!')
+})
 
 // router.get('/test2', async (req, res) =>{
 //   Cron.start('2')
