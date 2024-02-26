@@ -49,20 +49,21 @@ class Cron {
     }
   }
 
-  // static start = (numb: string) => {
-  //   const job = CronJob.from({
-  //     cronTime:'* * * * * *',
-  //     onTick: function Start() {
-  //       console.log(`job ${numb}`)
-  //     },
-  //     start: true,
-  //     onComplete: () => {
-  //       this.jobs = this.jobs.filter(el => el.id !== numb)
-  //       console.log('JOBS: ',this.jobs)
-  //     }
-  //     });
-  //   this.jobs.push({id: numb, job})
-  // }
+  public static test = (cb: () => void) => {
+    const date = new Date()
+    date.setMinutes(date.getMinutes()+2)
+    const job = CronJob.from({
+      cronTime:date,
+      onTick: function Start() {
+        console.log('start cb')
+        cb()
+      },
+      start: true,
+      onComplete: () => {
+        console.log('COmplete job')
+      }
+      });
+  }
 
   // static stop = (numb: string) => {
   //   console.log(`Job ${numb} stop`)

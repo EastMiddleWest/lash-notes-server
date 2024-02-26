@@ -24,7 +24,10 @@ router.put('/updateClient', ClientController.updateClient)
 router.delete('/deleteClient', ClientController.deleteClient)
 
 router.get('/test1', async (req, res) =>{
-  TgBot.sendMessage(465076362,'hello test')
+  Cron.test(() =>{
+    console.log('cd started')
+    TgBot.sendMessage(465076362,'hello from cron')
+  })
   res.status(200).json('Run!')
 })
 
